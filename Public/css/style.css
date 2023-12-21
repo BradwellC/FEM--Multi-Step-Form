@@ -1,0 +1,153 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-weight: 700;
+  src: url('../fonts/Ubuntu-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  src: url('../fonts/Ubuntu-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  src: url('../fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+
+/* Fonts END */
+
+:root {
+  --clr-primary-100: #02295a;
+  --clr-primary-200: #473dff;
+  --clr-primary-300: #adbeff;
+  --clr-primary-400: #bfe2fd;
+  --clr-primary-500: #ed3548;
+
+  --clr-neutral-100: #9699ab;
+  --clr-neutral-200: #d6d9e6;
+  --clr-neutral-300: #f0f6ff;
+  --clr-neutral-400: #fafbff;
+  --clr-neutral-500: #ffffff;
+
+  --clr-bg: #eff5ff;
+}
+
+body {
+  font-family: 'Ubuntu';
+
+  background-color: var(--clr-bg);
+}
+
+.grid-container {
+  width: 940px;
+  height: 600px;
+  margin: 10rem auto 0;
+
+  display: grid;
+  grid-template-columns: 273px 450px;
+  column-gap: 150px;
+
+  background-color: var(--clr-neutral-500);
+  border-radius: 15px;
+}
+
+/* Side Nav */
+
+.side-nav {
+  width: 273px;
+  height: 568px;
+  margin: 16px;
+
+  display: grid;
+  grid-template-rows: repeat(4, 33px);
+  row-gap: 32px;
+
+  background-image: url('../images/bg-sidebar-desktop.svg');
+  background-repeat: no-repeat;
+
+  padding: 35px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+
+  column-gap: 20px;
+}
+
+.nav-num {
+  font-size: 14px;
+
+  border: 1px solid var(--clr-neutral-500);
+  border-radius: 50%;
+
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  color: var(--clr-neutral-500);
+}
+
+.nav-num.active {
+  background-color: var(--clr-primary-400);
+  border: 1px solid var(--clr-primary-400);
+
+  color: var(--clr-primary-100);
+}
+
+.nav-copy {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--clr-primary-300);
+
+  text-transform: uppercase;
+}
+
+.nav-copy span {
+  font-size: 14px;
+  font-weight: 700;
+
+  color: var(--clr-neutral-500);
+}
+
+/* Form CSS */
+
+#regForm {
+  background-color: #d3b5b5;
+  margin: 100px auto;
+  font-family: Raleway;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+.nextBtn {
+  background-color: var(--clr-primary-100);
+  color: var(--clr-neutral-500);
+  border: none;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  width: 123px;
+  height: 43px;
+}
+
+.nextBtn:hover {
+  background-color: #164a8a;
+}
+
+.nxt-btn {
+  width: 450px;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+}
