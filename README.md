@@ -96,7 +96,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 ### Useful resources
 
 - [Multi Step Form Example](https://www.w3schools.com/howto/howto_js_form_steps.asp) - This helped me get statrted and find the best way to setup a multi step form.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [YouTube Video](https://www.youtube.com/watch?v=u_7n8Ed-qs4) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 **Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 

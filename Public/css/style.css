@@ -34,120 +34,485 @@
   --clr-bg: #eff5ff;
 }
 
+/* CSS Resets */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Generic CSS */
+
 body {
   font-family: 'Ubuntu';
 
   background-color: var(--clr-bg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+button {
+  background-color: none;
+  border: none;
+}
+
+.heading {
+  font-size: 32px;
+  font-weight: 700;
+
+  line-height: auto;
+  color: var(--clr-primary-100);
+}
+
+.body-l {
+  font-size: 16px;
+  font-weight: 400;
+
+  line-height: 25px;
+  color: var(--clr-neutral-100);
+}
+
+.body-m {
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: auto;
+  color: var(--clr-primary-100);
+}
+
+.body-s {
+  font-size: 12px;
+  font-weight: 400;
+
+  line-height: auto;
+}
+
+.btn-group {
+  width: 450px;
+}
+
+.next-btn {
+  background-color: var(--clr-primary-100);
+  color: #fff;
+
+  width: 123px;
+  height: 48px;
+
+  font-size: 16px;
+  font-weight: 400;
+
+  float: right;
+
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.prev-btn {
+  font-size: 16px;
+  font-weight: 400;
+
+  color: var(--clr-neutral-100);
+  float: left;
+
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+}
+
+/* Main CSS */
 
 .grid-container {
   width: 940px;
   height: 600px;
-  margin: 10rem auto 0;
 
-  display: grid;
-  grid-template-columns: 273px 450px;
-  column-gap: 150px;
+  margin-inline: auto;
 
   background-color: var(--clr-neutral-500);
   border-radius: 15px;
+
+  display: grid;
+  grid-template-columns: 274px 450px;
+  column-gap: 8rem;
+
+  box-shadow: 0 25px 40px -20px rgba(0, 0, 0, 9.51%);
 }
 
-/* Side Nav */
+.navbar {
+  background-image: url('../images/bg-sidebar-desktop.svg');
+  background-repeat: no-repeat;
 
-.side-nav {
-  width: 273px;
+  margin: 15px;
+
+  width: 274px;
   height: 568px;
-  margin: 16px;
+}
+
+.nav-container {
+  padding: 35px 30px;
 
   display: grid;
   grid-template-rows: repeat(4, 33px);
   row-gap: 32px;
-
-  background-image: url('../images/bg-sidebar-desktop.svg');
-  background-repeat: no-repeat;
-
-  padding: 35px;
 }
 
-.nav {
+.step {
   display: flex;
   flex-direction: row;
 
-  column-gap: 20px;
-}
-
-.nav-num {
-  font-size: 14px;
-
-  border: 1px solid var(--clr-neutral-500);
-  border-radius: 50%;
-
-  padding: 10px 12px;
-  display: flex;
   align-items: center;
+}
+
+.step-num {
+  border: 1px solid var(--clr-neutral-500);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  width: 33px;
+  height: 33px;
+
+  font-size: 14px;
+  font-weight: 700;
   color: var(--clr-neutral-500);
+  letter-spacing: 1px;
+
+  margin-right: 25px;
 }
 
-.nav-num.active {
+.step.active > .step-num {
   background-color: var(--clr-primary-400);
-  border: 1px solid var(--clr-primary-400);
-
   color: var(--clr-primary-100);
+  border: 1px solid var(--clr-primary-400);
 }
 
-.nav-copy {
+.step-copy {
   display: flex;
   flex-direction: column;
 
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--clr-primary-300);
+  font-size: 14px;
+  color: #fff;
 
   text-transform: uppercase;
+  font-weight: bold;
+
+  letter-spacing: 1px;
 }
 
-.nav-copy span {
-  font-size: 14px;
-  font-weight: 700;
+.step-copy span {
+  font-size: 12px;
+  letter-spacing: 0;
 
-  color: var(--clr-neutral-500);
+  font-weight: 400;
+  color: #abbcff;
 }
 
-/* Form CSS */
+/* Tabs */
 
-#regForm {
-  background-color: #d3b5b5;
-  margin: 100px auto;
-  font-family: Raleway;
-}
-
-/* Hide all steps by default: */
 .tab {
   display: none;
 }
 
-.nextBtn {
-  background-color: var(--clr-primary-100);
-  color: var(--clr-neutral-500);
-  border: none;
+.tab.active {
+  display: block;
+}
 
-  font-size: 16px;
+.tab-container {
+  display: grid;
+  row-gap: 40px;
+}
+
+.tab-header {
+  width: 450px;
+}
+
+.form-container {
+  width: 450px;
+
+  display: grid;
+  row-gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  row-gap: 8px;
+}
+
+.form-control {
+  border: 1px solid #d6d9e6;
+  border-radius: 8px;
+
+  height: 48px;
+  padding-left: 15px;
+}
+
+/* TAB 1 */
+
+/* TAB 2 */
+
+/* Plan Styling */
+.plans {
+  display: flex;
+  flex-direction: row;
+
+  width: 450px;
+}
+
+.plan span {
+  width: 138px;
+  height: 183px;
+}
+
+/* Toggle Switch */
+.plan-switcher {
+  width: 450px;
+  height: 48px;
+
+  background-color: #d6d9e6;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.switch-title {
+  font-size: 14px;
   font-weight: 500;
 
-  width: 123px;
-  height: 43px;
+  color: var(--clr-neutral-100);
 }
 
-.nextBtn:hover {
-  background-color: #164a8a;
-}
-
-.nxt-btn {
-  width: 450px;
+.switch-container {
+  width: 184px;
+  height: 21px;
 
   display: flex;
   flex-direction: row;
 
   justify-content: space-between;
+  align-items: center;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+
+  width: 38px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  cursor: pointer;
+
+  background-color: var(--clr-primary-100);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+
+  content: '';
+  width: 14px;
+  height: 14px;
+  left: 4px;
+  bottom: 3px;
+
+  background-color: var(--clr-neutral-500);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* .switch input:checked + .slider {
+  background-color: var(--clr-neutral-500);
+} */
+
+.switch input:checked + .slider:before {
+  background-color: #f1f3fa;
+}
+
+.switch input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* TAB 3 */
+
+/* Checkmark CSS */
+.onlineService {
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+  width: 450px;
+  height: 81px;
+}
+
+.onlineService input {
+  display: none;
+  opacity: 0;
+  cursor: pointer;
+
+  width: 0;
+  height: 0;
+}
+
+.onlineService input:checked ~ .onlineCheckmark {
+  background-color: var(--clr-primary-200);
+}
+
+/* Checkbox CSS */
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Thank you Styling */
+.tab-thankyou {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 450px;
+  height: 238px;
+
+  padding-top: 17rem;
+  text-align: center;
 }

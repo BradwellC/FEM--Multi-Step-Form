@@ -1,20 +1,20 @@
-const currentTab = 0;
-showTab(currentTab);
+var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
 
 function showTab(n) {
   // This function will display the specified tab of the form...
-  let tab = document.getElementsByClassName('tab');
-  tab[n].style.display = 'block';
+  var x = document.getElementsByClassName('tab');
+  x[n].style.display = 'block';
   //... and fix the Previous/Next buttons:
   if (n == 0) {
     document.getElementById('prevBtn').style.display = 'none';
   } else {
     document.getElementById('prevBtn').style.display = 'inline';
   }
-  if (n == tab.length - 1) {
+  if (n == x.length - 1) {
     document.getElementById('nextBtn').innerHTML = 'Submit';
   } else {
-    document.querySelector('.nextBtn').innerHTML = 'Next Step';
+    document.getElementById('nextBtn').innerHTML = 'Next';
   }
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n);
@@ -22,7 +22,7 @@ function showTab(n) {
 
 function nextPrev(n) {
   // This function will figure out which tab to display
-  var x = document.querySelector('.tab');
+  var x = document.getElementsByClassName('tab');
   // Exit the function if any field in the current tab is invalid:
   if (n == 1 && !validateForm()) return false;
   // Hide the current tab:
@@ -32,7 +32,7 @@ function nextPrev(n) {
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
     // ... the form gets submitted:
-    document.getElementsByClassName('multistep').submit();
+    document.getElementById('regForm').submit();
     return false;
   }
   // Otherwise, display the correct tab:
@@ -59,7 +59,7 @@ function validateForm() {
   }
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
-    document.getElementsByClassName('nav')[currentTab].className += ' finish';
+    document.getElementsByClassName('step')[currentTab].className += ' finish';
   }
   return valid; // return the valid status
 }
@@ -67,9 +67,9 @@ function validateForm() {
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
   var i,
-    x = document.getElementsByClassName('nav-num');
+    x = document.getElementsByClassName('step');
   for (i = 0; i < x.length; i++) {
-    x[i].className = x[i].className.add(' active');
+    x[i].className = x[i].className.replace(' active', '');
   }
   //... and adds the "active" class on the current step:
   x[n].className += ' active';
